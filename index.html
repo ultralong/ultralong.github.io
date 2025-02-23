@@ -1,0 +1,189 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>UltraLong-8B: Efficient Training of Ultra-Long Context Language Models</title>
+    <style type="text/css">
+      /* css for table */
+      .tg  {border-collapse:collapse;border-color:#9ABAD9;border-spacing:0;}
+      .tg td{background-color:#EBF5FF;border-color:#9ABAD9;border-style:solid;border-width:1px;color:#444;
+        font-family:Arial, sans-serif;font-size:12px;overflow:hidden;padding:10px 5px;word-break:normal;}
+      .tg th{background-color:#409cff;border-color:#9ABAD9;border-style:solid;border-width:1px;color:#fff;
+        font-family:Arial, sans-serif;font-size:12px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+      .tg .tg-center{text-align:center;vertical-align:top}
+      .tg .tg-left{text-align:left;vertical-align:top}
+
+      /* css for table */
+      .tt  {border-collapse:collapse;border-color:#9ABAD9;border-spacing:0;}
+      .tt td{background-color:#EBF5FF;border-color:#9ABAD9;border-style:solid;border-width:0px;color:#444;
+        font-family:Arial, sans-serif;font-size:13px;overflow:hidden;padding:10px 5px;word-break:normal;}
+      .tt th{background-color:#409cff;border-color:#9ABAD9;border-style:solid;border-width:0px;color:#fff;
+        font-family:Arial, sans-serif;font-size:13px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+      .tt .tt-center{text-align:center;vertical-align:top}
+      .tt .tt-left{text-align:left;vertical-align:top}
+      .tt .tt-center_boardertop{text-align:center;vertical-align:top;border-top-width:1.6px}
+      .tt .tt-left_boardertop{text-align:left;vertical-align:top;border-top-width:1.6px}
+
+      /* css for text container */
+      .container {
+        margin: 0 auto;
+        max-width: 900px;
+        text-align: left;
+        padding: 0 20px;
+        line-height: 1.5;
+        font-size: 18px;
+      }
+
+      /* color for subtitle */
+      .colored_subtitle {
+        color: rgb(91, 91, 91);
+      }
+
+      .custom-link {
+            color: #76b900;
+            text-decoration: none;
+      }
+
+      .img-chatrag {
+        max-width: 92%;
+        height: auto;
+      }
+
+      .img-70 {
+        max-width: 70%;
+        height: auto;
+      }
+
+      .img-75 {
+        max-width: 75%;
+        height: auto;
+      }
+
+      .img-fit {
+        max-width: 80%;
+        height: auto;
+      }
+
+      .img-full {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .img-60 {
+        max-width: 60%;
+        height: auto;
+      }
+
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 15px;
+        overflow-x: auto;
+      }
+      .flex-content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      code {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <h2>UltraLong-8B: Efficient Training of Ultra-Long Context Language Models</h2>
+      <h4>
+        <a href="https://huggingface.co/ultralong/Llama-3.1-8B-UltraLong-1M-Instruct" class="custom-link">UltraLong-1M 🤗</a> &ensp;
+        <a href="https://huggingface.co/ultralong/Llama-3.1-8B-UltraLong-2M-Instruct" class="custom-link">UltraLong-2M 🤗</a> &ensp;
+        <a href="https://huggingface.co/ultralong/Llama-3.1-8B-UltraLong-4M-Instruct" class="custom-link">UltraLong-4M 🤗</a> &ensp;
+<!--        <a href="https://huggingface.co/your-org/UltraLong-8B/tree/main/data" class="custom-link">Evaluation Data🤗</a> &ensp;-->
+<!--        <a href="https://huggingface.co/datasets/your-org/UltraLong-8B-Training-Data" class="custom-link">Training Data🤗</a> &ensp;-->
+<!--        <a href="https://arxiv.org/abs/XXXX.XXXX" class="custom-link">Paper</a>-->
+      </h4>
+      <p>
+        We introduce <strong>UltraLong-8B</strong>, a series of ultra-long context language models designed to process extensive sequences of text (up to 1M, 2M, and 4M tokens) while maintaining competitive performance on standard benchmarks. Built on Llama-3.1, UltraLong-8B leverages a systematic training recipe that combines efficient continued pretraining with instruction tuning to enhance long-context understanding and instruction-following capabilities. This approach enables our models to efficiently scale their context windows without sacrificing general performance.
+      </p>
+
+      <h3>Needle In A Haystack</h3>
+      <figure>
+        <div class="flex-content" style="justify-content: space-around; text-align: center;">
+          <img class="img-60" style="max-width: 32%;" src="figs/Llama-3.1-8B-UltraLong-1M-Instruct.png" alt="Needle in a Haystack Test 1">
+          <img class="img-60" style="max-width: 32%;" src="figs/Llama-3.1-8B-UltraLong-2M-Instruct.png" alt="Needle in a Haystack Test 2">
+          <img class="img-60" style="max-width: 32%;" src="figs/Llama-3.1-8B-UltraLong-4M-Instruct.png" alt="Needle in a Haystack Test 3">
+        </div>
+      </figure>
+      <p>
+        We evaluate UltraLong-8B using the Needle In A Haystack (NIAH) test—a popular benchmark for assessing long-context retrieval. Our model consistently achieves 100% accuracy across various sequence lengths and document depths, demonstrating its robust long-context retrieval capability.
+      </p>
+
+      <h3>Long Context Evaluation</h3>
+      <figure>
+        <div class="flex-content" style="text-align: center;">
+          <img class="img-70" src="figs/long_benchmark.png" alt="Ultra-Long Task Evaluation">
+        </div>
+      </figure>
+      <p>
+        UltraLong-8B achieves superior results on real-world ultra-long tasks, outperforming existing models on benchmarks that require processing inputs beyond 128K tokens.
+      </p>
+
+      <h3>Standard Capability Evaluation</h3>
+      <figure>
+        <div class="flex-content" style="text-align: center;">
+          <img class="img-70" src="figs/standard_benchmark.png" alt="Standard Task Evaluation">
+        </div>
+      </figure>
+      <p>
+        In addition to its long-context capabilities, UltraLong-8B maintains competitive performance on standard benchmarks, demonstrating balanced improvements for both long and short input tasks.
+      </p>
+
+      <h3>Uses</h3>
+
+      <pre><code>import transformers
+import torch
+
+model_id = "ultralong/Llama-3.1-8B-UltraLong-1M-Instruct"
+
+pipeline = transformers.pipeline(
+    "text-generation",
+    model=model_id,
+    model_kwargs={"torch_dtype": torch.bfloat16},
+    device_map="auto",
+)
+
+messages = [
+    {"role": "system", "content": "You are a pirate chatbot who always responds in pirate speak!"},
+    {"role": "user", "content": "Who are you?"},
+]
+
+outputs = pipeline(
+    messages,
+    max_new_tokens=256,
+)
+print(outputs[0]["generated_text"][-1])
+</code></pre>
+
+      <h3>Correspondence</h3>
+      <p>
+        Chejian Xu (<a class="custom-link" href="mailto:chejian2@illinois.edu">chejian2@illinois.edu</a>), Wei Ping (<a class="custom-link" href="mailto:wping@nvidia.com">wping@nvidia.com</a>)
+      </p>
+
+<!--      <h3>Citation</h3>-->
+<!--      <pre>-->
+<!--@article{your2024ultralong,-->
+<!--  title={Efficient Training of Ultra-Long Context Language Models},-->
+<!--  author={Your Name and Collaborators},-->
+<!--  journal={arXiv preprint arXiv:XXXX.XXXX},-->
+<!--  year={2024}-->
+<!--}-->
+<!--      </pre>-->
+
+<!--      <h3>License</h3>-->
+<!--      <p>-->
+<!--        The model is released under a Non-Commercial License and is subject to the <a href="https://llama.meta.com/llama3/license/" class="custom-link">META LLAMA 3 COMMUNITY LICENSE AGREEMENT</a>.-->
+<!--      </p>-->
+      <br><br><br>
+    </div>
+  </body>
+</html>
